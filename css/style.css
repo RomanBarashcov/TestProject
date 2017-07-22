@@ -1,0 +1,174 @@
+﻿
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #353535;
+	cursor: pointer;
+}
+
+body {
+	margin: 0;
+	color: #525252;
+	font-family: "Source Sans Pro",sans-serif;
+	font-size: 16px;
+	padding-top: 10px;
+}
+
+
+h1,h2,h3,h4 {
+	font-family: "Source Sans Pro",sans-serif;
+	font-weight: normal;
+	color: #353535;
+	margin-bottom: 1em;
+}
+
+h1 {
+	font-size: 1.75em;
+}
+
+h2  {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+ul {
+	margin-bottom: 1.5em;
+}
+
+ul h4 {
+	margin-bottom: 0.35em;
+}
+
+a {
+	color: #353535;
+}
+li {
+	list-style-type: none;
+}
+#content {
+	padding: 0 0 0 10px;
+	width: 715px;
+	margin: 0 0 0 285px;
+}
+
+#header {
+	height: 65px;
+	position: relative;
+	width:950px;
+}
+
+
+.right {
+	float: right;
+}
+
+#wrapper {
+	width: 978px;
+	position: relative;
+	background: #FFF;
+	margin: 0 auto 0 auto;
+	box-shadow: 10px 100px 150px 0px rgba(0,0,0,0.15);
+	border: solid 1px #f3f3f3;
+	border-top: 0;
+}
+
+.box p {
+	margin-bottom: 0em;
+}
+
+.box ul{
+	margin-bottom: 0em;
+	list-style: square inside;
+}
+
+.box table {
+	border-collapse:collapse;
+}
+
+.box table, th, td {
+	border: 1px solid #e3e3e3;
+	padding: 4px;
+}
+
+.basic-function-for-user{
+	padding: 2px;
+	margin-left: 10px;
+	font-size: 11px;
+}
+
+.link-area{
+	border-top:  solid 1px silver;
+	list-style-type: none;
+}
+.login-form{
+	margin-top: 100px;
+}
+.comments-block{
+	padding:20px;
+	border: solid 1px silver;
+	border-radius: 5px;
+}
+
+.messages-area{
+	padding: 5px;
+	list-style-type: none;
+}
+
+
+.link-success{
+	color: #419641;
+}
+
+.link-success:hover{
+	color: #398439;
+}
+
+.link-warning{
+	color: #eb9316;
+}
+
+.link-warning:hover{
+	color: #d58512;
+}
+
+.link-danger{
+	color: #c12e2a;
+}
+
+.link-danger:hover{
+	color: #ac2925;
+}
+
+.auth-with-social-networks{
+	text-align: center;
+}
+.login-form {
+	border: 1px solid silver;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 35px;
+}
+.message-for-user{
+	padding: 15px;
+}
+.footer {
+	height: 100px;
+}
+
+.main-content-col-align{
+	margin: 0 auto;
+}
