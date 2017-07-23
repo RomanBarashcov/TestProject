@@ -30,6 +30,32 @@ class Connection
             //Дописываем данные в массив
             $items[] = $data;
         }
+
+        $is_data_not_null = $this->get_data($items);
+
+        if($is_data_not_null){
+            $items = $items;
+        }
+        else{
+            $items['error'] = 'bed request, or data not found';
+        }
+        
         return $items;
+    }
+
+    public function get_data($query_result)
+    {
+        $result = false;
+        foreach ($query_result as $arr) {
+            foreach ($arr as $item) {
+                if(isset($item['num_rows']) && $item['num_rows'] == 0){
+                    $result = false;
+                }
+                else {
+                    $result = true;
+                }
+            }
+        }
+        return $result;
     }
 }

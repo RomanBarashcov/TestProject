@@ -33,12 +33,6 @@ class Route
 		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
 
-		/*
-		echo "Model: $model_name <br>";
-		echo "Controller: $controller_name <br>";
-		echo "Action: $action_name <br>";
-		*/
-
 		// подцепляем файл с классом модели (файла модели может и не быть)
 
 		$model_file = strtolower($model_name).'.php';
@@ -70,6 +64,17 @@ class Route
 				switch ($action)
 				{
 					case "action_login":
+						if(isset($_POST['email']) && isset($_POST['password']))
+						{
+							$email = $_POST['email'];
+							$password = $_POST['password'];
+							$controller->$action($email, $password);
+						}
+						else{
+							Route::ErrorPage404();
+						}
+						break;
+					case "action_save_new_user":
 						if(isset($_POST['email']) && isset($_POST['password']))
 						{
 							$email = $_POST['email'];

@@ -18,23 +18,33 @@ class Model_Accounts extends Model
         $link = $this->connection->get_connection();
         $query = "SELECT * FROM accounts WHERE email='$email' AND password='$password'";
         $result[] = $this->connection->get_result($link, $query);
-        return $result;
+        if(isset($result[0]['error'])){
+            $result = ['error' => 'Неправильный пароль или Email'];
+        }
+        else {
+            $result = $this->get_user_data($query);
+        }
+        return json_encode($result);
     }
 
-    public function logout()
-    {
-
-    }
-
-    public function create_new_user($email, $password)
+    public function registration($email, $password)
     {
         $link = $this->connection->get_connection();
-        $query = "INSERT INTO accounts (`email`,`password`) VALUES('$email', '$password')";
+        $query = "SELECT * FROM accounts  WHERE email ='$email'";
         $result[] = $this->connection->get_result($link, $query);
+        $is_user_creating = $this->is_user_creating($email, $result);
+        if($is_user_creating) {
+            $result["error_registration"] = " Пользователь с таким Email уже зарегистрирован.";
+        }
+        else {
+            $new_user_result = $this->create_new_user($email, $password, 'registration');
+            $result = $this->get_user_data($new_user_result);
+            $result["success"] = "Новый пользователь успешно создан!";
+        }
         return $result;
     }
 
-    public function faceboock_auth($email)
+    public function facebook_auth($email)
     {
         $link = $this->connection->get_connection();
         $query = "SELECT * FROM accounts  WHERE email ='$email'";
@@ -44,7 +54,7 @@ class Model_Accounts extends Model
             $result = $this->get_user_data($result);
         }
         else {
-            $result = $this->create_new_user_auth($email);
+            $result = $this->create_new_user($email, null, 'facebook');
             $result = $this->get_user_data($result);
         }
         return $result;
@@ -66,10 +76,10 @@ class Model_Accounts extends Model
         return $result;
     }
 
-    public function create_new_user_auth($email)
+    public function create_new_user($email, $password, $auth_type)
     {
         $link = $this->connection->get_connection();
-        $query = "INSERT INTO accounts  (`email`,`authorization_type`) VALUES('$email', 'facebook')";
+        $query = "INSERT INTO accounts  (`email`,`password`,`authorization_type`) VALUES('$email','$password', '$auth_type')";
         $result[] = $this->connection->get_result($link, $query);
         return $result;
     }

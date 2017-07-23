@@ -4,7 +4,7 @@
             <div class="col-md-5 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Comments site</h3>
+                        <h3 class="panel-title"><?php if(isset($data['result'])){ echo $data['result']; }?></h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="/accounts/login">
@@ -15,12 +15,13 @@
                                 <div class="form-group">
                                     <input id="password" class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
-                                <a href="javascript:login()" class="btn btn-success btn-block">Login</a>
-                                <p>New user? <a href="signUp.html" class="">Sign up</a></p>
+                                <a href="javascript:login()" class="btn btn-success btn-block">Войти</a>
+                                <p class="signUp-link">Новый пользователь? <a href="accounts/registration" class="text-warning">Регистрация</a></p>
                             </fieldset>
-                            <p class="text-center">or login</p>
-                            <fb:login-button scope="public_profile,email" autologoutlink="true" onlogin="checkLoginState();">
-                            </fb:login-button>
+                            <p class="text-center">
+                                <fb:login-button scope="public_profile,email" autologoutlink="true" onlogin="checkLoginState();">
+                                </fb:login-button>
+                            </p>
                         </form>
                     </div>
                 </div>
@@ -41,9 +42,9 @@
                 'email' : email,
                 'password' : password
             },
-            success: function(data){
-                alert(data);
-                window.location.replace("http://localhost:8080/messages");
+            success: function(response){
+                var data = eval(response);
+      
             }
         });
     }
@@ -66,9 +67,8 @@ function statusChangeCallback(response){
                     data: {
                         'Email' : email
                     },
-                    success: function(data){
-                        alert(data);
-                       // window.location.replace("http://localhost:8080/messages");
+                    success: function(){
+                        window.location.replace("http://localhost:8080/messages");
                     }
                 });
             });

@@ -69,7 +69,7 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 
-		if($("#curentUserId").val() != null){
+		if($("#currentUserId").val() != null){
 			$(".login").empty();
 			$(".login").append('<a href="accounts/logout">Выход</a>');
 		}

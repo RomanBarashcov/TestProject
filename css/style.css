@@ -13,7 +13,7 @@ body {
 	margin: 0;
 	color: #525252;
 	font-family: "Source Sans Pro",sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	padding-top: 10px;
 }
 
@@ -152,7 +152,9 @@ li {
 .link-danger:hover{
 	color: #ac2925;
 }
-
+.signUp-link{
+	padding-top: 10px;
+}
 .auth-with-social-networks{
 	text-align: center;
 }
@@ -171,4 +173,15 @@ li {
 
 .main-content-col-align{
 	margin: 0 auto;
+}
+.date-created{
+	font-size: 11px;
+}
+
+.list-group-item{
+	border: 0px solid white;
+}
+
+.comment{
+	font-size: 13px;
 }

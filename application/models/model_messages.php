@@ -45,7 +45,6 @@ class Model_Messages extends Model
         $result = $this->remove_children_comments($rem_msg_id);
         if($result)
         {
-            var_dump($result);
             $link = $this->connection->get_connection();
             $query = "DELETE FROM messages WHERE id = '$rem_msg_id'";
             $result[] = $this->connection->get_result($link, $query);

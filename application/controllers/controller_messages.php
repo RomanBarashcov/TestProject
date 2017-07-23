@@ -26,7 +26,7 @@ class Controller_Messages extends Controller
     
     function action_create($msg, $author_id)
     {
-        $result = $this->model->create_message($msg, $author_id);
+        $this->model->create_message($msg, $author_id);
     }
 
     function action_update_msg($up_msg, $msg_id)
@@ -41,22 +41,21 @@ class Controller_Messages extends Controller
 
     function action_remove_msg($rem_msg)
     {
-        $result = $this->model->remove_message($rem_msg);
+        $this->model->remove_message($rem_msg);
     }
 
     function action_create_comment($new_comment, $parent_id, $msg_id, $author_id)
     {
-        $result = $this->model->create_comments($new_comment, $parent_id, $msg_id , $author_id);
-        var_dump($result);
+        $this->model->create_comments($new_comment, $parent_id, $msg_id , $author_id);
     }
 
     function action_update_comment($up_comment, $comment_id, $parent_id)
     {
-        $result = $this->model->update_comment($up_comment, $comment_id, $parent_id);
+        $this->model->update_comment($up_comment, $comment_id, $parent_id);
     }
 
     function action_remove_comment($rem_comment_id)
     {
-        $result = $this->model->remove_comment($rem_comment_id);
+         $this->model->remove_comment($rem_comment_id);
     }
 }
