@@ -16,8 +16,7 @@ function statusChangeCallback(response){
                     data: {
                         'Email' : email
                     },
-                    success: function(data){
-                        alert(data);
+                    success: function(){
                         location.reload();
                     }
                 });

@@ -12,10 +12,10 @@ class Model_Messages extends Model
 
     public function get_data()
     {
-        // conecting to MySql
+        // connecting to MySql
         $link =  $this->connection->get_connection();
         //creating query
-        $query_message = "SELECT * FROM messages";
+        $query_message = "SELECT * FROM messages ORDER BY id DESC";
         $query_comments = "SELECT * FROM comments";
         // Get db query result
         $result_message = $this->connection->get_result($link, $query_message);

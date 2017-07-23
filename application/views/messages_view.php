@@ -102,5 +102,5 @@
     }
     ?>
 
-<script src="js/share-js/messages/facebook.js" type="text/javascript"></script>
-<script src="js/share-js/messages/messages.js" type="text/javascript"></script>
+<script src="/js/share-js/messages/facebook.js" type="text/javascript"></script>
+<script src="/js/share-js/messages/messages.js" type="text/javascript"></script>

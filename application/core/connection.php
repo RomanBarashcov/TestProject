@@ -31,7 +31,7 @@ class Connection
             $items[] = $data;
         }
 
-        $is_data_not_null = $this->get_data($items);
+        $is_data_not_null = $this->is_query_not_null($items);
 
         if($is_data_not_null){
             $items = $items;
@@ -43,7 +43,8 @@ class Connection
         return $items;
     }
 
-    public function get_data($query_result)
+    //проверить результат выборки из БД на наличие данных
+    public function is_query_not_null($query_result)
     {
         $result = false;
         foreach ($query_result as $arr) {

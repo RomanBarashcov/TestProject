@@ -3,14 +3,10 @@
 class Model_Accounts extends Model
 {
     private $connection;
-    private $client_id;
-    private $client_secret;
 
     function __construct()
     {
         $this->connection = new Connection();
-        $this->client_id = 1902941346633894;
-        $this->client_secret = "ee596b339edc552dfefed7fe99de5659";
     }
 
     public function get_user_by_data($email, $password)
@@ -18,13 +14,10 @@ class Model_Accounts extends Model
         $link = $this->connection->get_connection();
         $query = "SELECT * FROM accounts WHERE email='$email' AND password='$password'";
         $result[] = $this->connection->get_result($link, $query);
-        if(isset($result[0]['error'])){
-            $result = ['error' => 'Неправильный пароль или Email'];
+        if(!isset($result[0]['error'])){
+            $result = $this->get_user_data($result);
         }
-        else {
-            $result = $this->get_user_data($query);
-        }
-        return json_encode($result);
+        return $result;
     }
 
     public function registration($email, $password)
@@ -34,12 +27,11 @@ class Model_Accounts extends Model
         $result[] = $this->connection->get_result($link, $query);
         $is_user_creating = $this->is_user_creating($email, $result);
         if($is_user_creating) {
-            $result["error_registration"] = " Пользователь с таким Email уже зарегистрирован.";
+            $result["error_registration"] = "Пользователь с таким Email уже зарегистрирован.";
         }
         else {
             $new_user_result = $this->create_new_user($email, $password, 'registration');
             $result = $this->get_user_data($new_user_result);
-            $result["success"] = "Новый пользователь успешно создан!";
         }
         return $result;
     }

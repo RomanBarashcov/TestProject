@@ -4,7 +4,7 @@
             <div class="col-md-5 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"></h3>
+                        <h3 class="panel-title">Регистрация</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="/accounts/registration">
@@ -24,23 +24,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-
-    function saveNewUser() {
-        var email = $("#email").val();
-        var password = $("#password").val();
-
-        $.ajax({
-            type: "POST",
-            url: "/accounts/save_new_user",
-            data: {
-                'email' : email,
-                'password' : password
-            },
-            success: function(){
-                window.location.replace("http://localhost:8080/messages");
-            }
-        });
-    }
-
-</script>
+<script src="/js/share-js/accounts/registration.js" type="text/javascript"></script>

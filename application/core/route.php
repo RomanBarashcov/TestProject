@@ -117,7 +117,7 @@ class Route
 							Route::ErrorPage404();
 						}
 						break;
-					case "action_update_message":
+					case "action_update_msg":
 						if(isset($_POST['new_message']) && isset($_POST['message_id']))
 						{
 							$new_msg = $_POST['new_message'];

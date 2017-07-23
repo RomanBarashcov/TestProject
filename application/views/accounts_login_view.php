@@ -4,7 +4,7 @@
             <div class="col-md-5 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?php if(isset($data['result'])){ echo $data['result']; }?></h3>
+                        <h3 class="panel-title">Вход</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="/accounts/login">
@@ -29,53 +29,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-
-    function login() {
-        var email = $("#email").val();
-        var password = $("#password").val();
-
-        $.ajax({
-            type: "POST",
-            url: "/accounts/login",
-            data: {
-                'email' : email,
-                'password' : password
-            },
-            success: function(response){
-                var data = eval(response);
-      
-            }
-        });
-    }
-
-function checkLoginState(){
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-}
-
-function statusChangeCallback(response){
-    FB.login(function(response) {
-        if (response.authResponse) {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', {fields: "id,name,email"}, function(response) {
-                var email = response.email;
-                $.ajax({
-                    type: "POST",
-                    url: "/accounts/facebook_auth",
-                    data: {
-                        'Email' : email
-                    },
-                    success: function(){
-                        window.location.replace("http://localhost:8080/messages");
-                    }
-                });
-            });
-        } else {
-            console.log('User cancelled login or did not fully authorize.');
-        }
-    },{scope: 'email'});
-}
-    
-</script>
+<script src="/js/share-js/accounts/facebook.js" type="text/javascript"></script>
+<script src="/js/share-js/accounts/login.js" type="text/javascript"></script>
