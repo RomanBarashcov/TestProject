@@ -75,7 +75,6 @@ function saveCommentMessage(idElement) {
 
 function updateMessage(idElement) {
     var id = idElement;
-    alert("updateMessagemethod");
     var messageId = $("#hiddenMsgId"+ id).val();
     $("#messageTextBoxArea"+ id).append('<input type="hidden" id="updateMessageId'+ id +'" value="'+  messageId +'">' +
         '<textarea id="updateNewMessage'+ id +'" class="form-control" rows="3" placeholder="Введите новое сообщение"></textarea>' +
@@ -88,7 +87,7 @@ function saveUpdateMessage(idElement) {
     var id = idElement;
     var newMessage = $("#updateNewMessage" + id).val();
     var messageId = $("#updateMessageId" + id).val();
-    
+
 
     $.ajax({
         type: "POST",
