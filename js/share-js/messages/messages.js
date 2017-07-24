@@ -88,8 +88,7 @@ function saveUpdateMessage(idElement) {
     var id = idElement;
     var newMessage = $("#updateNewMessage" + id).val();
     var messageId = $("#updateMessageId" + id).val();
-
-    alert("messageId : " + messageId + " message " + newMessage);
+    
 
     $.ajax({
         type: "POST",
