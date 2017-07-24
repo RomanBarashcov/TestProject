@@ -35,9 +35,9 @@ class Model_Messages extends Model
     public function update_message($up_msg, $msg_id)
     {
         $link = $this->connection->get_connection();
-        $query = "UPDATE messages SET message = '$up_msg', WHERE id = '$msg_id'";
+        $query = "UPDATE messages SET message = '$up_msg' WHERE id = '$msg_id'";
         $result[] = $this->connection->get_result($link, $query);
-        return true;
+        return $result;
     }
 
     public function remove_message($rem_msg_id)

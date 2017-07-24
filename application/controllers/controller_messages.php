@@ -31,12 +31,7 @@ class Controller_Messages extends Controller
 
     function action_update_msg($up_msg, $msg_id)
     {
-        $result = $this->model->update_message($up_msg, $msg_id);
-        if($result)
-        {
-            $data = $this->model->get_data();
-            $this->view->generate('messages_view.php', 'template_view.php', $data);
-        }
+       $this->model->update_message($up_msg, $msg_id);
     }
 
     function action_remove_msg($rem_msg)
